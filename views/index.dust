@@ -1,0 +1,23 @@
+{>layout /}
+
+<link rel="stylesheet" href="/stylesheets/styles.css" /> 
+
+{<title}
+    <h1>Welcome to {title}</h1>
+{/title}
+
+{<subtitle}
+    <h3>Se está renderizando una plantilla de DustJS</h3>
+{/subtitle}
+
+{<Description}
+    <p class='text'>Rellena el cuadro y añade tareas a tu lista:</p>
+{/Description}
+
+{<formulario}
+    <form>
+        <input class='form-input' type='text' name='task'></input>
+        <br>
+        <button class='form-button' type="submit">Añadir tarea</button>
+    </form>
+{/formulario}

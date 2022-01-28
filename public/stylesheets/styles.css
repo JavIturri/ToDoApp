@@ -1,0 +1,32 @@
+body {
+  background-color: rgb(3, 3, 37);
+  color: white;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.page {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.text {
+  color: aqua;
+}
+
+.form-input {
+  height: 20px;
+  width: 30%;
+}
+
+.form-button {
+  margin-top: 15px;
+  background-color: white;
+  border-width: 0px;
+  height: 25px;
+  width: 100px;
+}
+
+.form-button:hover {
+  cursor: pointer;
+  background-color: aqua;
+}
