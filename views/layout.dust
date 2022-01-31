@@ -2,8 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="stylesheet" href="/stylesheets/styles.css" />
 
     <title>{title}</title>
@@ -11,11 +10,11 @@
   <body>
     <div class="page">
       <div class="title">{+title /}</div>
-      <div>{+subtitle /}</div>
+
       <div>{+Description /}</div>
       <div>{+formulario /}</div>
-      <div id="js"></div>
-      <script src="/public/javascript/addTasks.js"></script>
+      <div>{+lista /}</div>
+      <div>{+javascript /}</div>
     </div>
   </body>
 </html>
