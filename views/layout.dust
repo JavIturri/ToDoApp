@@ -11,10 +11,7 @@
     <div class="page">
       <div class="title">{+title /}</div>
 
-      <div>{+Description /}</div>
-      <div>{+formulario /}</div>
-      <div>{+lista /}</div>
-      <div>{+javascript /}</div>
+      {+Description /} {+formulario /} {+lista /} {+javascript /}
     </div>
   </body>
 </html>

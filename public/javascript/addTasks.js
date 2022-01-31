@@ -44,3 +44,29 @@ for (var i = 0; i < arrayTask.length; i++) {
 
   list.appendChild(li);
 }
+
+fetch("127.0.0.1:3000/tasks")
+  .then(function (response) {
+    // The API call was successful!
+    console.log("success!", response);
+  })
+  .catch(function (err) {
+    // There was an error
+    console.warn("Something went wrong.", err);
+  });
+
+async function apiTasks() {
+  fetch("http://127.0.0.1:3000/tasks")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      return data;
+    })
+    .catch(function (err) {
+      console.warn("Something went wrong.", err);
+    });
+}
+
+const res = await apiTasks();
+console.log(res);
