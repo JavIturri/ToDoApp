@@ -36,11 +36,8 @@
           
             list.appendChild(li);
         }   
-    };
-            
+    };    
     onload();
     console.log(arrayres);
-
-    
     </script>
 {/javascript}
