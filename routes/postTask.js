@@ -10,7 +10,8 @@ router.post("/", (req, res) => {
   taskdb.tasks.push(newtask);
   const str = JSON.stringify(taskdb);
   console.log(str);
-  /* res.send(taskdb); */
+  res.status(201);
+  res.send(taskdb);
   fs.writeFileSync("./DB/data.json", str);
   res.end();
 });

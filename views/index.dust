@@ -4,7 +4,7 @@
 
 
 {<title}
-    <h1>Welcome to {title}</h1>
+    <h1>Welcome to ToDoApp</h1>
 {/title}
 
 {<Description}
@@ -14,11 +14,16 @@
 {<formulario}
         <input type='text' value="" class='form-input' onchange="getTask(event)" ></input>
         <br>
-        <button class='form-button' type="submit" onclick="addTask(inputTask)">Añadir tarea</button>
+        <button class='form-button' type="submit" onclick="addTask(inputTask);printTasks()">Añadir tarea</button>
 {/formulario}
 
 {<lista}
-    <div id="tasks"><h2>LISTA DE TAREAS</h2></div>
+    <div><h2>LISTA DE TAREAS</h2></div>
+    <ul id = "tasks">
+        {#tasks}
+            <li>{#name}{.}{/name}</li>
+        {/tasks}
+    </ul>
 {/lista}
 
 {<javascript}
@@ -35,7 +40,7 @@
 
         function printTasks() {
             var i = arrayTask.length - 1;
-            var li = document.createElement("p");
+            var li = document.createElement("li");
             var content = document.createTextNode(arrayTask[i]);
             li.appendChild(content);
             var list = document.getElementById("tasks");
