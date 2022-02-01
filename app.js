@@ -11,16 +11,21 @@ app.engine("dust", adaro.dust()); // establecer el motor de renderizado Adaro
 app.set("views", "./views"); // establecer directorio views
 app.set("view engine", "dust");
 
+app.use(express.json());
+
 app.use(express.static("public")); //carpeta publica para acceder a estilos
 
 var indexRouter = require("./routes/index"); //enrutado de index
 app.use("/", indexRouter); //salida index
 
-var dataRouter = require("./routes/tasks");
+var dataRouter = require("./routes/tasks"); //enrutado recibir JSON con las tareas
 app.use("/tasks", dataRouter);
 
 var taskDBRouter = require("./routes/taskDB");
 app.use("/taskDB", taskDBRouter);
+
+var postTask = require("./routes/postTask");
+app.use("/postTasks", postTask);
 
 app.listen(port, () => {
   console.log(`ToDoApp listening on port ${port}`);

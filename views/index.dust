@@ -7,8 +7,6 @@
     <h1>Welcome to {title}</h1>
 {/title}
 
-
-
 {<Description}
     <p class='text'>Rellena el cuadro y añade tareas a tu lista:</p>
 {/Description}
@@ -16,7 +14,7 @@
 {<formulario}
         <input type='text' value="" class='form-input' onchange="getTask(event)" ></input>
         <br>
-        <button class='form-button' type="submit" onclick="printTasks()">Añadir tarea</button>
+        <button class='form-button' type="submit" onclick="addTask(inputTask)">Añadir tarea</button>
 {/formulario}
 
 {<lista}
@@ -24,6 +22,7 @@
 {/lista}
 
 {<javascript}
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript">
         let arrayTask =[];
         let inputTask = ''; 
@@ -42,8 +41,21 @@
             var list = document.getElementById("tasks");
             list.appendChild(li);
         };
+
+        function addTask(value) {
+            task = { "name": value };
+            axios.post('http://127.0.0.1:3000/postTasks', task)
+            .then(response => {
+                const addedTask = response.data;
+                console.log(`POST: task is added`, addedTask);
+            })
+            .catch (error => console.error(error))
+        }
         
     </script>
 {/javascript}
 
+{<enlace}
+    <a class="enlace" href="http://127.0.0.1:3000/taskDB">Tareas en BD</a>
+{/enlace}
 
