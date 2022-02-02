@@ -1,16 +1,12 @@
 body {
-  background-color: rgb(3, 3, 37);
-  color: white;
+  background-color: rgb(144, 182, 240);
+  color: rgb(0, 0, 0);
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 .page {
   width: 90%;
   margin: 0 auto;
-}
-
-.text {
-  color: aqua;
 }
 
 .form-input {
@@ -28,5 +24,35 @@ body {
 
 .form-button:hover {
   cursor: pointer;
-  background-color: aqua;
+  background-color: rgb(32, 35, 201);
+  color: white;
+}
+
+.listElement {
+  background-color: rgb(88, 128, 236);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  width: 30%;
+}
+
+.listElement-task {
+  margin-left: 10px;
+  width: 60%;
+}
+
+.listElement-edit {
+  height: 40px;
+  border-width: 0px;
+  margin-right: 2%;
+  background-color: white;
+  border-width: 0px;
+}
+
+.listElement-edit:hover {
+  cursor: pointer;
+  background-color: rgb(32, 35, 201);
+  color: white;
 }

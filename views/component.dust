@@ -1,0 +1,8 @@
+
+{>layout /}
+
+{<comp}
+
+    <div>COMPONENT {parameter}</div>
+
+{/comp}

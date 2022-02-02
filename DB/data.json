@@ -1,1 +1,3 @@
-{"tasks":[{"name":"Estudiar DustJS"},{"name":"Entrenar"},{"name":"Hacer la compra"},{"name":"Limpiar el coche"},{"name":"Llamar por teléfono"}]}
+{
+  "tasks": [{ "name": "Estudiar DustJS" }, { "name": "Entrenar" }]
+}

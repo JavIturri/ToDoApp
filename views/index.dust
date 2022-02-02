@@ -1,7 +1,7 @@
-{>layout /}
+{>component parameter="JAVI"/}
+
 
 <link rel="stylesheet" href="/stylesheets/styles.css" /> 
-
 
 {<title}
     <h1>Welcome to ToDoApp</h1>
@@ -17,13 +17,24 @@
         <button class='form-button' type="submit" onclick="addTask(inputTask);printTasks()">Añadir tarea</button>
 {/formulario}
 
+{<listElement}
+    <div id = "tasks">
+        {#tasks}
+            {#name}
+                <div class="listElement">
+                    <p class="listElement-task">{.}</p>
+                    <button class="listElement-edit">Editar</button>
+                    <button class="listElement-edit">Eliminar</button>
+                </div> 
+            {/name}  
+        {/tasks}
+    </div>
+{/listElement}
+
 {<lista}
     <div><h2>LISTA DE TAREAS</h2></div>
-    <ul id = "tasks">
-        {#tasks}
-            <li>{#name}{.}{/name}</li>
-        {/tasks}
-    </ul>
+    
+    {+listElement /}
 {/lista}
 
 {<javascript}
@@ -40,11 +51,32 @@
 
         function printTasks() {
             var i = arrayTask.length - 1;
-            var li = document.createElement("li");
-            var content = document.createTextNode(arrayTask[i]);
-            li.appendChild(content);
+            var listElement = document.createElement('div');
+            listElement.classList.add("listElement");
+
+            var p = document.createElement("p");
+            p.classList.add('listElement-task');
+            var pContent = document.createTextNode(arrayTask[i]);
+            p.appendChild(pContent);
+
+            listElement.appendChild(p);
+
+            var buttonEdit = document.createElement('button');
+            buttonEdit.classList.add('listElement-edit');
+            var buttonContentEdit = document.createTextNode('Editar');
+            buttonEdit.appendChild(buttonContentEdit);
+
+            listElement.appendChild(buttonEdit);
+
+            var buttonDel = document.createElement('button');
+            buttonDel.classList.add('listElement-edit');
+            var buttonContentDel = document.createTextNode('Eliminar');
+            buttonDel.appendChild(buttonContentDel);
+
+            listElement.appendChild(buttonDel);
+
             var list = document.getElementById("tasks");
-            list.appendChild(li);
+            list.appendChild(listElement);
         };
 
         function addTask(value) {
@@ -56,11 +88,7 @@
             })
             .catch (error => console.error(error))
         }
-        
     </script>
 {/javascript}
 
-{<enlace}
-    <a class="enlace" href="http://127.0.0.1:3000/taskDB">Tareas en BD</a>
-{/enlace}
 
