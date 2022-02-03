@@ -2,15 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <link rel="stylesheet" href="/stylesheets/styles.css" />
-
     <title>{title}</title>
   </head>
   <body>
     <div class="page">
       <div class="title">{+title /}</div>
-
       {+Description /} {+formulario /} {+lista /} {+javascript /}
     </div>
   </body>

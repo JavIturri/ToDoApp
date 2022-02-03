@@ -1,11 +1,25 @@
 {>layout /}
-<link rel="stylesheet" href="/stylesheets/styles.css" />
+
 {<comp}
-<script>
-    var count = 0;
-</script>
     {#tasks}
         {#name}
+            <div class="listElement">
+                <p class="listElement-task">{task}</p>
+                <button class="listElement-edit">Editar</button>
+                <button class="listElement-edit">Eliminar</button>
+            </div>
+        {/name}
+    {/tasks}
+{/comp}
+
+
+{<compjs}
+    <script>
+        var count = 0;
+    </script>
+    {#tasks}
+        {#name}
+            <link rel="stylesheet" href="/stylesheets/styles.css" />
             <script class="scptparam" type="text/javascript" param="{task}">
                 var paramScript = document.getElementsByClassName("scptparam");
                 var val = paramScript[count].getAttribute("param");
@@ -41,10 +55,9 @@
 
                 buttonDel.addEventListener("click", (e) => {
                     const item = e.target.parentElement;
-                     
                     list.removeChild(item);
                 })
             </script>
         {/name}  
-    {/tasks}
-{/comp}
+    {/tasks} 
+{/compjs}
