@@ -1,8 +1,50 @@
-
 {>layout /}
-
+<link rel="stylesheet" href="/stylesheets/styles.css" />
 {<comp}
+<script>
+    var count = 0;
+</script>
+    {#tasks}
+        {#name}
+            <script class="scptparam" type="text/javascript" param="{task}">
+                var paramScript = document.getElementsByClassName("scptparam");
+                var val = paramScript[count].getAttribute("param");
+                console.log(val);
+                count++;
 
-    <div>COMPONENT {parameter}</div>
+                var listElement = document.createElement('div');
+                listElement.classList.add("listElement");
 
+                var p = document.createElement("p");
+                p.classList.add('listElement-task');
+                var pContent = document.createTextNode(val);
+                p.appendChild(pContent);
+
+                listElement.appendChild(p);
+
+                var buttonEdit = document.createElement('button');
+                buttonEdit.classList.add('listElement-edit');
+                var buttonContentEdit = document.createTextNode('Editar');
+                buttonEdit.appendChild(buttonContentEdit);
+
+                listElement.appendChild(buttonEdit);
+
+                var buttonDel = document.createElement('button');
+                buttonDel.classList.add('listElement-edit');
+                var buttonContentDel = document.createTextNode('Eliminar');
+                buttonDel.appendChild(buttonContentDel);
+
+                listElement.appendChild(buttonDel);
+
+                var list = document.getElementById("tasks");
+                list.appendChild(listElement);
+
+                buttonDel.addEventListener("click", (e) => {
+                    const item = e.target.parentElement;
+                     
+                    list.removeChild(item);
+                })
+            </script>
+        {/name}  
+    {/tasks}
 {/comp}

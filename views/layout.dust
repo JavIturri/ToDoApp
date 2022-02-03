@@ -11,7 +11,7 @@
     <div class="page">
       <div class="title">{+title /}</div>
 
-      {+Description /} {+formulario /} {+lista /} {+javascript /} {+comp /}
+      {+Description /} {+formulario /} {+lista /} {+javascript /}
     </div>
   </body>
 </html>

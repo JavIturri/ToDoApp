@@ -1,0 +1,13 @@
+
+
+{<editAction}   
+    <p>Parameter is {task}</p>
+    <script id="scptparam" type="text/javascript" param="{task}">
+        var paramScript = '';
+        var val = '';
+        paramScript = document.getElementById("scptparam");
+        val = paramScript.getAttribute("param");
+        console.log(val)
+    </script>
+{/editAction}
+

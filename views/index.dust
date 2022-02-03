@@ -1,4 +1,5 @@
-{>component parameter="JAVI"/}
+
+{>component task="{.}"/}
 
 
 <link rel="stylesheet" href="/stylesheets/styles.css" /> 
@@ -12,29 +13,16 @@
 {/Description}
 
 {<formulario}
-        <input type='text' value="" class='form-input' onchange="getTask(event)" ></input>
-        <br>
-        <button class='form-button' type="submit" onclick="addTask(inputTask);printTasks()">Añadir tarea</button>
+    <input type='text' value="" class='form-input' onchange="getTask(event)"></input>
+    <br>
+    <button class='form-button' type="submit" onclick="addTask(inputTask);printTasks()">Añadir tarea</button>
 {/formulario}
-
-{<listElement}
-    <div id = "tasks">
-        {#tasks}
-            {#name}
-                <div class="listElement">
-                    <p class="listElement-task">{.}</p>
-                    <button class="listElement-edit">Editar</button>
-                    <button class="listElement-edit">Eliminar</button>
-                </div> 
-            {/name}  
-        {/tasks}
-    </div>
-{/listElement}
 
 {<lista}
     <div><h2>LISTA DE TAREAS</h2></div>
-    
-    {+listElement /}
+    <div id = "tasks">
+        {+comp /}
+    </div>
 {/lista}
 
 {<javascript}
@@ -77,6 +65,11 @@
 
             var list = document.getElementById("tasks");
             list.appendChild(listElement);
+
+            buttonDel.addEventListener("click", (e) => {
+                const item = e.target.parentElement;
+                list.removeChild(item);
+             })
         };
 
         function addTask(value) {
