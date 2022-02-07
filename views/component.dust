@@ -3,17 +3,17 @@
 {<comp}
     {#tasks}
         {#name}
-            <div class="listElement">
+        
+            <div class="listElement" id="{task}">
                 <p class="listElement-task">{task}</p>
                 <button class="listElement-edit">Editar</button>
-                <button class="listElement-edit">Eliminar</button>
+                <button class="listElement-del" onclick="eraseTask('{task}'); deleteTask('{task}')">Eliminar</button>
             </div>
         {/name}
     {/tasks}
 {/comp}
 
-
-{<compjs}
+<!-- {<listTasks}
     <script>
         var count = 0;
     </script>
@@ -60,4 +60,4 @@
             </script>
         {/name}  
     {/tasks} 
-{/compjs}
+{/listTasks} -->

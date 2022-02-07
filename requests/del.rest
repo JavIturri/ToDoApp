@@ -1,0 +1,6 @@
+DELETE http://127.0.0.1:3000/delTasks
+Content-Type: application/json
+
+{
+    "name": "Entrenar"
+}

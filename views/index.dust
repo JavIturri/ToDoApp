@@ -1,76 +1,31 @@
-{>component task="{.}"/}
+{>component task="{.}" /}
 
 <link rel="stylesheet" href="/stylesheets/styles.css" /> 
-<script src="/javascript/index.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 {<title}
     <h1>Welcome to ToDoApp</h1>
 {/title}
 
-{<Description}
-    <p class='text'>Rellena el cuadro y añade tareas a tu lista:</p>
-{/Description}
-
 {<formulario}
-    <input type='text' value="" class='form-input' onchange="getTask(event)"></input>
-    <br>
-    <button class='form-button' type="submit" onclick="addTask(inputTask);printTasks()">Añadir tarea</button>
+  {<Description}
+    <p class='text'>Rellena el cuadro y añade tareas a tu lista:</p>
+  {/Description}
+  <input type='text' value="" class='form-input' onchange="getTask(event)"></input>
+  <br>
+  <button class='form-button' type="submit" onclick="addTask(inputTask);printTasks()">Añadir tarea</button>
 {/formulario}
 
 {<lista}
     <div><h2>LISTA DE TAREAS</h2></div>
     <div id = "tasks">
-        {+compjs /}
+      {+comp /}
     </div>
 {/lista}
 
 {<javascript}
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript">
-        let arrayTask = [];
-        let inputTask = "";
-        function getTask(event) {
-          inputTask = event.target.value;
-          console.log(inputTask);
-          arrayTask.push(inputTask);
-          console.log(arrayTask);
-        }
-        function printTasks() {
-          var i = arrayTask.length - 1;
-          var listElement = document.createElement("div");
-          listElement.classList.add("listElement");
-          var p = document.createElement("p");
-          p.classList.add("listElement-task");
-          var pContent = document.createTextNode(arrayTask[i]);
-          p.appendChild(pContent);
-          listElement.appendChild(p);
-          var buttonEdit = document.createElement("button");
-          buttonEdit.classList.add("listElement-edit");
-          var buttonContentEdit = document.createTextNode("Editar");
-          buttonEdit.appendChild(buttonContentEdit);
-          listElement.appendChild(buttonEdit);
-          var buttonDel = document.createElement("button");
-          buttonDel.classList.add("listElement-edit");
-          var buttonContentDel = document.createTextNode("Eliminar");
-          buttonDel.appendChild(buttonContentDel);
-          listElement.appendChild(buttonDel);
-          var list = document.getElementById("tasks");
-          list.appendChild(listElement);
-          buttonDel.addEventListener("click", (e) => {
-            const item = e.target.parentElement;
-            list.removeChild(item);
-          });
-        }
-        function addTask(value) {
-          task = { name: value };
-          axios
-            .post("http://127.0.0.1:3000/postTasks", task)
-            .then((response) => {
-              const addedTask = response.data;
-              console.log(`POST: task is added`, addedTask);
-            })
-            .catch((error) => console.error(error));
-        }
+      let arrayTask = [];
+      let inputTask = "";
     </script>
 {/javascript}
-
-

@@ -13,7 +13,7 @@ app.set("view engine", "dust");
 
 app.use(express.json());
 
-app.use(express.static("public")); //carpeta publica para acceder a estilos
+app.use(express.static("public")); //carpeta publica para acceder a estilos y js
 
 var indexRouter = require("./routes/index"); //enrutado de index
 app.use("/", indexRouter); //salida index
@@ -21,14 +21,13 @@ app.use("/", indexRouter); //salida index
 var dataRouter = require("./routes/tasks"); //enrutado recibir JSON con las tareas
 app.use("/tasks", dataRouter);
 
-var taskDBRouter = require("./routes/taskDB");
-app.use("/taskDB", taskDBRouter);
-
 var postTask = require("./routes/postTask");
 app.use("/postTasks", postTask);
 
+var delTask = require("./routes/delTask");
+app.use("/delTasks", delTask);
+
 app.listen(port, () => {
   console.log(`ToDoApp listening on port ${port}`);
-  console.log("http://127.0.0.1:3000/taskDB");
   console.log("http://127.0.0.1:3000/");
 });

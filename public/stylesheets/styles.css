@@ -56,3 +56,17 @@ body {
   background-color: rgb(32, 35, 201);
   color: white;
 }
+
+.listElement-del {
+  height: 40px;
+  border-width: 0px;
+  margin-right: 2%;
+  background-color: white;
+  border-width: 0px;
+}
+
+.listElement-del:hover {
+  cursor: pointer;
+  background-color: rgb(32, 35, 201);
+  color: white;
+}
