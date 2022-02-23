@@ -25,7 +25,7 @@ var postTask = require("./routes/postTask");
 app.use("/postTasks", postTask);
 
 var delTask = require("./routes/delTask");
-app.use("/delTasks", delTask);
+app.use("/", delTask);
 
 app.listen(port, () => {
   console.log(`ToDoApp listening on port ${port}`);
